@@ -35,6 +35,19 @@ const MessageView: React.FC = () => {
   };
 
   useEffect(() => {
+    // Load Google AdSense script
+    const script = document.createElement('script');
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  useEffect(() => {
     if (popupBoxes.length < remainingPopups) {
       const timer = setTimeout(() => {
         const position = getSafePosition();
@@ -107,7 +120,7 @@ const MessageView: React.FC = () => {
         !box.closed && (
           <div
             key={box.id}
-            className="absolute bg-white rounded-lg shadow-xl p-4 w-48"
+            className="absolute bg-white rounded-lg shadow-xl p-4 w-64"
             style={{
               top: `${box.top}%`,
               left: `${box.left}%`,
@@ -116,7 +129,7 @@ const MessageView: React.FC = () => {
             }}
           >
             <div className="flex justify-between items-center mb-2">
-              <h3 className="text-sm font-semibold text-gray-800">Popup {box.id}</h3>
+              <h3 className="text-sm font-semibold text-gray-800">Advertisement</h3>
               <button
                 onClick={() => handleCloseBox(box.id)}
                 className="text-gray-500 hover:text-gray-700 focus:outline-none"
@@ -125,7 +138,17 @@ const MessageView: React.FC = () => {
               </button>
             </div>
             <div className="bg-gray-100 p-2 rounded">
-              <p className="text-xs text-gray-600">Click the X to close this popup</p>
+              <ins
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
             </div>
           </div>
         )
