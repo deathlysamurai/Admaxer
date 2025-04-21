@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Admaxer/static/css/main.c52147bb.css",
-    "main.js": "/Admaxer/static/js/main.3e074ef5.js",
+    "main.js": "/Admaxer/static/js/main.e41286de.js",
     "static/js/453.110e6377.chunk.js": "/Admaxer/static/js/453.110e6377.chunk.js",
     "index.html": "/Admaxer/index.html",
     "main.c52147bb.css.map": "/Admaxer/static/css/main.c52147bb.css.map",
-    "main.3e074ef5.js.map": "/Admaxer/static/js/main.3e074ef5.js.map",
+    "main.e41286de.js.map": "/Admaxer/static/js/main.e41286de.js.map",
     "453.110e6377.chunk.js.map": "/Admaxer/static/js/453.110e6377.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c52147bb.css",
-    "static/js/main.3e074ef5.js"
+    "static/js/main.e41286de.js"
   ]
 }
