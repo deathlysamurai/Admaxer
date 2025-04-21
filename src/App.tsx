@@ -10,9 +10,11 @@ const GitHubPagesRedirect = () => {
 
   React.useEffect(() => {
     const path = location.pathname;
-    if (path.startsWith('/?/')) {
-      // Remove the leading '/?' to get the actual path
-      const actualPath = path.substring(2);
+    const search = location.search;
+    
+    // Handle both formats: /?/path and /path
+    if (path === '/' && search.startsWith('?/')) {
+      const actualPath = search.substring(1); // Remove the '?'
       navigate(actualPath, { replace: true });
     }
   }, [location, navigate]);
