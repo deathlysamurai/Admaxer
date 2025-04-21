@@ -1,16 +1,29 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import MessageView from './components/MessageView';
 
-// Custom hook to handle GitHub Pages routing
-const useQuery = () => {
-  return new URLSearchParams(useLocation().search);
+// Component to handle GitHub Pages routing
+const GitHubPagesRedirect = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    const path = location.pathname;
+    if (path.startsWith('/?/')) {
+      // Remove the leading '/?' to get the actual path
+      const actualPath = path.substring(2);
+      navigate(actualPath, { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
 };
 
-const App: React.FC = () => {
+function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
+      <GitHubPagesRedirect />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/fun/:sender/:message/:popupCount" element={<MessageView />} />
@@ -18,6 +31,6 @@ const App: React.FC = () => {
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;

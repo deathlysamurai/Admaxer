@@ -18,7 +18,8 @@ const Home: React.FC = () => {
   const generateLink = () => {
     const encodedSender = encodeURIComponent(sender);
     const encryptedMessage = encryptMessage(message);
-    return `${window.location.origin}${process.env.PUBLIC_URL}/fun/${encodedSender}/${encryptedMessage}/${popupCount}`;
+    const basePath = process.env.PUBLIC_URL || '';
+    return `${window.location.origin}${basePath}/fun/${encodedSender}/${encryptedMessage}/${popupCount}`;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
