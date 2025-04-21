@@ -37,7 +37,7 @@ const MessageView: React.FC = () => {
   useEffect(() => {
     // Load Google AdSense script
     const script = document.createElement('script');
-    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID';
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5173894246439198';
     script.async = true;
     script.crossOrigin = 'anonymous';
     document.head.appendChild(script);
@@ -141,8 +141,8 @@ const MessageView: React.FC = () => {
               <ins
                 className="adsbygoogle"
                 style={{ display: 'block' }}
-                data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-client="ca-pub-5173894246439198"
+                data-ad-slot="1432184900"
                 data-ad-format="auto"
                 data-full-width-responsive="true"
               ></ins>
