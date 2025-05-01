@@ -15,3 +15,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.customization-button {
+  background: linear-gradient(to right, rgb(107, 70, 193), rgb(237, 100, 166));
+  border-image: linear-gradient(to right, #6b46c1, #ed64a6) 1;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  border-width: 0 0 2px 0;
+  flex-grow: 1;
+  text-align: center;
+}

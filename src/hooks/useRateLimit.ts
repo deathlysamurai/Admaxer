@@ -5,9 +5,9 @@ interface RateLimitState {
   lastReset: number;
 }
 
-const RATE_LIMIT_WINDOW = 5 * 60 * 1000; // 5 minutes in milliseconds
-const MAX_REQUESTS = 50; // Maximum requests per window
-const WARNING_THRESHOLD = 10; // Show warning when less than 10 requests remaining
+const RATE_LIMIT_WINDOW = 5 * 60 * 1000;
+const MAX_REQUESTS = 50; 
+const WARNING_THRESHOLD = 10;
 
 export const useRateLimit = () => {
   const [isLimited, setIsLimited] = useState(false);
@@ -23,7 +23,6 @@ export const useRateLimit = () => {
       if (storedState) {
         state = JSON.parse(storedState);
         
-        // Check if window has expired
         if (currentTime - state.lastReset > RATE_LIMIT_WINDOW) {
           state = { count: 0, lastReset: currentTime };
         }
@@ -34,15 +33,12 @@ export const useRateLimit = () => {
       setRemainingRequests(MAX_REQUESTS - state.count);
       setIsLimited(state.count >= MAX_REQUESTS);
       
-      // Calculate time until reset
       const timeLeft = RATE_LIMIT_WINDOW - (currentTime - state.lastReset);
       setTimeUntilReset(Math.max(0, Math.ceil(timeLeft / 1000)));
     };
 
-    // Update state immediately
     updateState();
 
-    // Update state every second to show countdown
     const interval = setInterval(updateState, 1000);
 
     return () => clearInterval(interval);
@@ -56,7 +52,6 @@ export const useRateLimit = () => {
     if (storedState) {
       state = JSON.parse(storedState);
       
-      // Reset if window has expired
       if (currentTime - state.lastReset > RATE_LIMIT_WINDOW) {
         state = { count: 0, lastReset: currentTime };
       }
