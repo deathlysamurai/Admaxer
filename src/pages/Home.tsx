@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <div className="container mx-auto px-4 py-16 flex-grow">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-white mb-6">AdMaxer</h1>
-          <p className="text-xl text-purple-200 mb-8">The Ultimate Prank Message Platform</p>
+          <h2 className="text-xl text-purple-200 mb-8">The Ultimate Prank Message Platform</h2>
         </div>
 
         <FeaturesGrid />
